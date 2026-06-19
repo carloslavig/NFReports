@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatórios — Central de Serviços</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="brand"><span class="dot"></span> Central de Serviços</div>
+    <a class="nav-link" href="index.html">Dashboard</a>
+    <a class="nav-link" href="servicos.html">Lançar Serviço</a>
+    <a class="nav-link" href="colaboradores.html">Colaboradores</a>
+    <a class="nav-link active" href="relatorios.html">Relatórios</a>
+  </aside>
+
+  <main class="main">
+    <div class="page-header">
+      <div>
+        <h1>Relatórios</h1>
+        <div class="subtitle">Gere relatórios diários, semanais ou mensais</div>
+      </div>
+    </div>
+
+    <div class="tipo-toggle" id="formatoToggle">
+      <button data-formato="diario" class="active">Diário</button>
+      <button data-formato="semanal">Semanal</button>
+      <button data-formato="mensal">Mensal</button>
+    </div>
+
+    <div class="filter-bar" id="filtroDiario">
+      <div class="form-row">
+        <label for="filtroData">Data</label>
+        <input type="date" id="filtroData">
+      </div>
+      <button class="btn btn-primary" id="btnGerar">Gerar Relatório</button>
+      <button class="btn" id="btnPdf">Exportar PDF</button>
+      <button class="btn" id="btnExcel">Exportar Excel</button>
+    </div>
+
+    <div class="filter-bar" id="filtroPeriodo" style="display:none">
+      <div class="form-row">
+        <label for="filtroDataInicio">Data Inicial</label>
+        <input type="date" id="filtroDataInicio">
+      </div>
+      <div class="form-row">
+        <label for="filtroDataFim">Data Final</label>
+        <input type="date" id="filtroDataFim">
+      </div>
+      <button class="btn btn-primary" id="btnGerarPeriodo">Gerar Relatório</button>
+      <button class="btn" id="btnPdfPeriodo">Exportar PDF</button>
+      <button class="btn" id="btnExcelPeriodo">Exportar Excel</button>
+    </div>
+
+    <div class="panel" id="resultado"></div>
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/relatorios.js"></script>
+</body>
+</html>

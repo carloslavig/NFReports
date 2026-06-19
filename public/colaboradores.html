@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colaboradores — Central de Serviços</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="brand"><span class="dot"></span> Central de Serviços</div>
+    <a class="nav-link" href="index.html">Dashboard</a>
+    <a class="nav-link" href="servicos.html">Lançar Serviço</a>
+    <a class="nav-link active" href="colaboradores.html">Colaboradores</a>
+    <a class="nav-link" href="relatorios.html">Relatórios</a>
+  </aside>
+
+  <main class="main">
+    <div class="page-header">
+      <div>
+        <h1>Colaboradores</h1>
+        <div class="subtitle">Cadastro da equipe vinculada aos serviços</div>
+      </div>
+      <button class="btn btn-primary" id="btnNovo">+ Novo Colaborador</button>
+    </div>
+
+    <div class="panel">
+      <table class="data-table">
+        <thead>
+          <tr><th>ID</th><th>Nome</th><th>Cargo</th><th>Cadastro</th><th>Status</th><th></th></tr>
+        </thead>
+        <tbody id="tabelaColaboradores"></tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<!-- Modal simples de cadastro/edição -->
+<div id="modalOverlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:50; align-items:center; justify-content:center;">
+  <div class="form-card" style="width:90%; max-width:420px;">
+    <h2 style="font-family:var(--font-display); margin-top:0;" id="modalTitulo">Novo Colaborador</h2>
+    <form id="formColaborador">
+      <input type="hidden" id="colaborador_id_edit">
+      <div class="form-row">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" required>
+      </div>
+      <div class="form-row">
+        <label for="cargo">Cargo (opcional)</label>
+        <input type="text" id="cargo">
+      </div>
+      <div class="form-row">
+        <label for="status">Status</label>
+        <select id="status">
+          <option value="Ativo">Ativo</option>
+          <option value="Inativo">Inativo</option>
+        </select>
+      </div>
+      <div style="display:flex; gap:10px; margin-top:6px;">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <button type="button" class="btn" id="btnCancelar">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/colaboradores.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Central de Serviços</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="brand"><span class="dot"></span> Central de Serviços</div>
+    <a class="nav-link active" href="index.html">Dashboard</a>
+    <a class="nav-link" href="servicos.html">Lançar Serviço</a>
+    <a class="nav-link" href="colaboradores.html">Colaboradores</a>
+    <a class="nav-link" href="relatorios.html">Relatórios</a>
+  </aside>
+
+  <main class="main">
+    <div class="page-header">
+      <div>
+        <h1>Visão Geral</h1>
+        <div class="subtitle">Acompanhamento em tempo real da operação</div>
+      </div>
+      <div class="clock" id="clock"></div>
+    </div>
+
+    <div class="kpi-grid" id="kpiGrid"></div>
+
+    <div class="panel-grid">
+      <div class="panel">
+        <h2>Serviços por Colaborador</h2>
+        <canvas id="chartColaboradores" height="220"></canvas>
+      </div>
+      <div class="panel">
+        <h2>Ranking de Produtividade</h2>
+        <ul class="ranking-list" id="rankingList"></ul>
+      </div>
+    </div>
+
+    <div class="panel-grid">
+      <div class="panel">
+        <h2>Evolução dos Atendimentos</h2>
+        <div class="filter-bar" style="margin-bottom:14px; padding:8px 10px;">
+          <button class="btn btn-sm" data-periodo="diario">Diário</button>
+          <button class="btn btn-sm" data-periodo="semanal">Semanal</button>
+          <button class="btn btn-sm" data-periodo="mensal">Mensal</button>
+        </div>
+        <canvas id="chartEvolucao" height="220"></canvas>
+      </div>
+      <div class="panel">
+        <h2>Distribuição por Categoria</h2>
+        <canvas id="chartDistribuicao" height="220"></canvas>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

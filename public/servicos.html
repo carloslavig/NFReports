@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lançar Serviço — Central de Serviços</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="brand"><span class="dot"></span> Central de Serviços</div>
+    <a class="nav-link" href="index.html">Dashboard</a>
+    <a class="nav-link active" href="servicos.html">Lançar Serviço</a>
+    <a class="nav-link" href="colaboradores.html">Colaboradores</a>
+    <a class="nav-link" href="relatorios.html">Relatórios</a>
+  </aside>
+
+  <main class="main">
+    <div class="page-header">
+      <div>
+        <h1>Lançar Serviço</h1>
+        <div class="subtitle">Registre um atendimento realizado</div>
+      </div>
+      <div class="clock" id="clock"></div>
+    </div>
+
+    <div class="tipo-toggle" id="tipoToggle">
+      <button data-tipo="instalacao" class="active">Instalação</button>
+      <button data-tipo="manutencao">Manutenção</button>
+      <button data-tipo="retencao">Retenção</button>
+      <button data-tipo="retirada">Retirada de Equipamentos</button>
+      <button data-tipo="posvenda">Pós-venda</button>
+    </div>
+
+    <div class="form-card">
+      <form id="formServico">
+        <div class="form-row-inline">
+          <div class="form-row">
+            <label for="cliente_id">ID do Cliente</label>
+            <input type="text" id="cliente_id" required>
+          </div>
+          <div class="form-row">
+            <label for="cliente_nome">Nome do Cliente</label>
+            <input type="text" id="cliente_nome" required>
+          </div>
+        </div>
+
+        <div class="form-row" id="campoMotivo" style="display:none">
+          <label id="labelMotivo" for="motivo">Motivo</label>
+          <input type="text" id="motivo">
+        </div>
+
+        <div class="form-row" id="campoObservacoes" style="display:none">
+          <label for="observacoes">Observações</label>
+          <textarea id="observacoes" rows="3"></textarea>
+        </div>
+
+        <div class="form-row-inline">
+          <div class="form-row">
+            <label for="data_servico">Data do Atendimento</label>
+            <input type="date" id="data_servico" required>
+          </div>
+          <div class="form-row">
+            <label for="colaborador_id">Colaborador Responsável</label>
+            <select id="colaborador_id" required></select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Registrar Serviço</button>
+      </form>
+    </div>
+
+    <div class="panel" style="margin-top:24px">
+      <h2>Últimos Lançamentos</h2>
+      <table class="data-table" id="tabelaUltimos">
+        <thead>
+          <tr><th>Data</th><th>Cliente</th><th>Tipo</th><th>Responsável</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/servicos.js"></script>
+</body>
+</html>
